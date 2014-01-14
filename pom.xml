@@ -1,80 +1,101 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.dapurv5.scala.etudes</groupId>
-  <artifactId>scala-etudes</artifactId>
-  <version>1.1</version>
-  <packaging>jar</packaging>
+	<groupId>com.github.dapurv5.scala.etudes</groupId>
+	<artifactId>scala-etudes</artifactId>
+	<version>1.1</version>
+	<packaging>jar</packaging>
 
-  <name>scala-etudes</name>
-  <url>http://maven.apache.org</url>
+	<name>scala-etudes</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-
-  <repositories>
-    <repository>
-      <id>scala-tools.org</id>
-      <name>Scala-tools Maven2 Repository</name>
-      <url>http://scala-tools.org/repo-releases</url>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>scala-tools.org</id>
-      <name>Scala-tools Maven2 Repository</name>
-      <url>http://scala-tools.org/repo-releases</url>
-    </pluginRepository>
-  </pluginRepositories>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.scala-tools</groupId>
-        <artifactId>maven-scala-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>script</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <scalaVersion>2.10.3</scalaVersion>
-          <script>
-            println ("Hello from pom script :-)")
-          </script>
-        </configuration>
-        <dependencies>
-          <dependency>
-              <groupId>org.scala-lang</groupId>
-              <artifactId>scala-library</artifactId>
-              <version>2.10.3</version>
-            </dependency>
-        </dependencies>
-      </plugin>
-    </plugins>
-  </build>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-  </dependency>
+	<repositories>
+		<repository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</repository>
 
-  <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>2.10.3</version>
-  </dependency>
+		<repository>
+			<id>typesafe</id>
+			<name>typesafe-releases</name>
+			<url>http://repo.typesafe.com/typesafe/repo</url>
+		</repository>
+	</repositories>
 
-  </dependencies>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>script</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<scalaVersion>2.10.3</scalaVersion>
+					<script>
+						println ("Hello from pom script :-)")
+					</script>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.scala-lang</groupId>
+						<artifactId>scala-library</artifactId>
+						<version>2.10.3</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<!-- Play2 Maven plugin play must be in path for this -->
+			<!-- You also need to add scala nature when opening the project in eclipse -->
+			<plugin>
+				<groupId>org.nanoko.playframework</groupId>
+				<artifactId>play2-maven-plugin</artifactId>
+				<version>1.2.4</version>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.10.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>play</groupId>
+			<artifactId>play_2.9.1</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+
+	</dependencies>
 </project>
