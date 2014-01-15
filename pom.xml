@@ -64,15 +64,6 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-
-			<!-- Play2 Maven plugin play must be in path for this -->
-			<!-- You also need to add scala nature when opening the project in eclipse -->
-			<plugin>
-				<groupId>org.nanoko.playframework</groupId>
-				<artifactId>play2-maven-plugin</artifactId>
-				<version>1.2.4</version>
-				<extensions>true</extensions>
-			</plugin>
 		</plugins>
 	</build>
 
@@ -90,12 +81,5 @@
 			<artifactId>scala-library</artifactId>
 			<version>2.10.3</version>
 		</dependency>
-
-		<dependency>
-			<groupId>play</groupId>
-			<artifactId>play_2.9.1</artifactId>
-			<version>2.0.2</version>
-		</dependency>
-
 	</dependencies>
 </project>
