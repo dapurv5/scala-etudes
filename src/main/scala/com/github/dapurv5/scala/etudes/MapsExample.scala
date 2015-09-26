@@ -36,8 +36,8 @@ object MapsExample {
     for((date, metricsVectorToBeAdded) <- sqlResult.toSeq.sortBy {_._1}) {
       //add the current days data
       for((metric, value) <- metricsVectorToBeAdded) {
-        val value_ = value.toDoubleOpt.get;
-        val cumulativeSum_ = (cumulativeSum.getOrElse(metric,"0")).toDoubleOpt.get
+        val value_ = value.toDouble;
+        val cumulativeSum_ = (cumulativeSum.getOrElse(metric,"0")).toDouble
         cumulativeSum(metric) = (cumulativeSum_ + value_).toString
       }
       cumulativeSqlResult += (date -> cumulativeSum.clone.toMap)
