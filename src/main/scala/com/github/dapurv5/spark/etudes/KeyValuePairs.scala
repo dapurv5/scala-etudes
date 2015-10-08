@@ -22,6 +22,7 @@ object KeyValuePairs {
     val lines = sc.textFile(logFile, 2).cache();
     val pairs = lines.map { s => (s,1) }
     val counts = pairs.reduceByKey((a,b) => a+b);
+    counts.collect();
     counts.foreach(println);
   }
 }
