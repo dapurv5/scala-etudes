@@ -6,11 +6,11 @@ import org.apache.spark.SparkConf
 
 object Task2 {
   def main(args: Array[String]) {
-    val sc = new SparkContext(new SparkConf().setAppName("Task2").setMaster("local[2]"))
+    val sc = new SparkContext(new SparkConf().setAppName("Task2").setMaster("local[1]"))
 
     // read the file
     //val file = sc.textFile("hdfs://localhost:8020" + args(0))
-    val file = sc.textFile("/home/dapurv5/MyCode/private-projects/cs6242-assignments/HW3/graph1.tsv")
+    val file = sc.textFile("/home/dapurv5/MyCode/private-projects/cs6242-assignments/HW3/graph2.tsv")
     
     val lines = file.cache();
     val filteredLines = lines.filter { s => !s.split("\t")(2).equals("1")}
@@ -29,6 +29,6 @@ object Task2 {
 
     // store output on given HDFS path.
     // YOU NEED TO CHANGE THIS
-    counts.saveAsTextFile("/home/dapurv5/Desktop/hdfs-output/sparkout")// + args(1))
+    counts.map(f => f._1+"\t"+f._2).saveAsTextFile("/home/dapurv5/Desktop/hdfs-output/sparkout2")// + args(1))
   }
 }
